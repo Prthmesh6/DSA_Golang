@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	// checkLinkedList()
+	checkLinkedList()
 	checkTree()
 }
 
