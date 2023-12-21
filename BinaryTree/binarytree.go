@@ -39,15 +39,41 @@ func insertNode(Node *TreeNode, Data int) *TreeNode {
 	return Node
 }
 
-func printBst(Node *TreeNode) {
+func printInOrderTraversal(Node *TreeNode) {
 	if Node == nil {
 		return
 	}
-	printBst(Node.LeftNode)
+	printInOrderTraversal(Node.LeftNode)
 	fmt.Println(Node.Data)
-	printBst(Node.RightNode)
+	printInOrderTraversal(Node.RightNode)
+}
+
+func printPreOrderTraversal(Node *TreeNode) {
+	if Node == nil {
+		return
+	}
+	fmt.Println(Node.Data)
+	printInOrderTraversal(Node.LeftNode)
+	printInOrderTraversal(Node.RightNode)
+}
+
+func printPostOrderTraversal(Node *TreeNode) {
+	if Node == nil {
+		return
+	}
+	printInOrderTraversal(Node.LeftNode)
+	printInOrderTraversal(Node.RightNode)
+	fmt.Println(Node.Data)
 }
 
 func (bst *BinaryTree) PrintTree() {
-	printBst(bst.Root)
+	root := bst.Root
+	// root1 := root
+	// root2 := root
+	fmt.Println("Printing InOrder Traversal")
+	printInOrderTraversal(root)
+	fmt.Println("Printing PostOrder Traversal")
+	printPostOrderTraversal(root)
+	fmt.Println("Printing PreOrder Traversal")
+	printPreOrderTraversal(root)
 }
